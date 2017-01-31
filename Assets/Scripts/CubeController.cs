@@ -25,4 +25,14 @@ public class CubeController : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+
+	// 衝突時に呼ばれる関数
+	void OnCollisionEnter2D(Collision2D other){
+
+		// UnityChan以外と衝突した場合
+		if (other.gameObject.tag != "UnityChanTag") {
+			GetComponent<AudioSource> ().Play();
+		}
+	}
 }
