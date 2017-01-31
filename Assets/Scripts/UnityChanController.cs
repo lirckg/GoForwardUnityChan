@@ -39,6 +39,9 @@ public class UnityChanController : MonoBehaviour {
 		bool isGround = (transform.position.y > this.groudLevel) ? false : true;
 		this.animator.SetBool ("isGround", isGround);
 
+		// ジャンプ状態のときにはボリュームを0にする
+		GetComponent<AudioSource> ().volume = (isGround) ? 1 : 0;
+
 		// 着地状態でクリックされた場合
 		if (Input.GetMouseButton (0) && isGround) {
 			// 上方向の力をかける
